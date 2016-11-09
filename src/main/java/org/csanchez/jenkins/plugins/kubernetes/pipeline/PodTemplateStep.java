@@ -32,6 +32,7 @@ public class PodTemplateStep extends AbstractStepImpl implements Serializable {
     private String serviceAccount;
     private String nodeSelector;
     private String workingDir = ContainerTemplate.DEFAULT_WORKING_DIR;
+    private boolean emptyDirInMemory;
 
     @DataBoundConstructor
     public PodTemplateStep(String label, String name) {
@@ -108,6 +109,15 @@ public class PodTemplateStep extends AbstractStepImpl implements Serializable {
     @DataBoundSetter
     public void setWorkingDir(String workingDir) {
         this.workingDir = workingDir;
+    }
+
+    public String getEmptyDirInMemory() {
+        return emptyDirInMemory;
+    }
+
+    @DataBoundSetter
+    public void setEmptyDirInMemory(boolean emptyDirInMemory) {
+        this.emptyDirInMemory = emptyDirInMemory;
     }
 
     @Extension

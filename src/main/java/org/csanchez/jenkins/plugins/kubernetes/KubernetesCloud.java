@@ -370,7 +370,12 @@ public class KubernetesCloud extends Cloud {
         }
 
         // add an empty volume to share the workspace across the pod
-        volumes.add(new VolumeBuilder().withName(WORKSPACE_VOLUME_NAME).withNewEmptyDir("").build());
+        String memoryType = "";
+        if (template.getEmptyDirInMemory()) {
+            memoryType = "Memory";
+        }
+
+        volumes.add(new VolumeBuilder().withName(WORKSPACE_VOLUME_NAME).withNewEmptyDir(memoryType).build());
 
         for (ContainerTemplate containerTemplate : template.getContainers()) {
             List<VolumeMount> containerMounts = new ArrayList<VolumeMount>(volumeMounts);

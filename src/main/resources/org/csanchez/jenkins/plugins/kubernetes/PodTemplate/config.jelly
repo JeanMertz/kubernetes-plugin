@@ -44,6 +44,10 @@
      </f:entry>
 
 
+    <f:entry field="emptyDirInMemory" title="${%Workspace in memory}">
+      <f:checkbox default="false"/>
+    </f:entry>
+
     <f:entry field="nodeSelector" title="${%Node Selector}">
       <f:textbox/>
     </f:entry>
